@@ -1,0 +1,27 @@
+Welcome to the Secret Santa App!
+%br
+%p Enter the name of your Secret Santa
+
+=form_for :exchange do |f|
+  =f.label :Exchange_Name
+  =f.text_field :exchange_name
+  =f.submit
+%br
+%p Enter some of the participants in your secret santa (don't worry you can always enter more later)
+=form_for :users do |f|
+  =f.label :first_name
+  =f.text_field :first_name
+  =f.label :last_name
+  =f.text_field :last_name
+  =f.label :email
+  =f.text_field :email
+  =f.submit
+-#obviously make this DRYer
+=form_for :users do |f|
+  =f.label :first_name
+  =f.text_field :first_name
+  =f.label :last_name
+  =f.text_field :last_name
+  =f.label :email
+  =f.text_field :email
+  =f.submit
