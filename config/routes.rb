@@ -7,6 +7,13 @@ SecretSanta::Application.routes.draw do
   root 'home#index'
 
   # Example of regular route:
+  resources :users do
+    resources :exchanges
+  end
+
+  resources :exchanges
+
+  post 'create_exchange' => 'home#create_exchange'
   #   get 'products/:id' => 'catalog#view'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)

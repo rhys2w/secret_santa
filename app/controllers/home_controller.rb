@@ -1,12 +1,17 @@
 class HomeController < ApplicationController
 
-layout 'application'
+  layout 'application'
 
-def index
+  def index
 
-end
+  end
 
 
+  def create_exchange
+    puts params.inspect
+
+
+  end
 
 
 end
