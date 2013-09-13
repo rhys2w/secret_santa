@@ -1,39 +1,44 @@
-Welcome to the Secret Santa App!
+%h3.welcome Let's get started!
 %br
-%p Enter the name of your Secret Santa
+#container-body
+  %h3 Enter the name of your Secret Santa
 
 = form_tag(create_exchange_path, :method => 'post', :multipart => true) do
   %p
 
   / params[:user_one][:first_name]
   Exchange Name:
-    %br
-    = text_field_tag "exchange_name"
+  = text_field_tag "exchange_name"
   %p
     Due Date:
-    %br
     = date_field_tag "due_date"
   %p
     Maximum Budget:
-    %br
     = text_field_tag "price"
   %p 
-    Enter some of the participants in your secret santa (don't worry you can always enter more later)
+    Enter some of the participants in your secret santa (don't worry, you can always enter more later on!)
   %p 
-    Participant First Name
+    %h3 First Participant:
+    Participant First Name:
     = text_field_tag "[user_one]first_name"
-    Participant Last Name
+    %br
+    Participant Last Name:
     = text_field_tag "[user_one]last_name"
-    Participant Email
+    %br
+    Participant Email:
     = email_field_tag "[user_one]email"
+    %br
   %p 
-    Participant First Name
+    %h3 Second Participant:
+    Participant First Name:
     = text_field_tag "[user_two]first_name"
-    Participant Last Name
+    %br
+    Participant Last Name:
     = text_field_tag "[user_two]last_name"
-    Participant Email
+    %br
+    Participant Email:
     = email_field_tag "[user_two]email"
 
 
-
-  = submit_tag "Submit", class: "btn btn-large btn-primary"
+  = submit_tag "Submit", class: "btn btn-med btn-danger"
+%br

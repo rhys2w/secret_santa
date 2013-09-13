@@ -1,0 +1,51 @@
+body,p{
+	text-align: center;
+	background-color: #ECF0F1 !important;
+	font-family: 'Garamond', serif;
+	font-size: 16px;
+}
+
+a{
+	text-decoration: none;
+}
+
+input[type="text"], input[type="email"], input[type="password"], input[type="date"]{
+	height:8px !important;
+}
+
+#header-sign_in{
+	background-color:#fff;
+	height: 100%;
+	width: 100%;
+	font-size:1.2em;
+	padding: 10px;
+	float: right;
+}
+
+.logo{
+	background-color: #34495E;
+	height: 160px;
+}
+
+.top{
+	float: right;
+}
+
+#logo{
+	width:300px;
+	margin: 0 auto;
+	padding-top:10px;
+}
+
+.login{
+	font-size:20px;
+}
+
+.span3{
+	height: 10px;
+}
+
+.welcome{
+	font-family: 'Garamond', serif;
+	font-size:2em;
+}
