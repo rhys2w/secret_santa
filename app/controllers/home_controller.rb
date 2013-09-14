@@ -8,10 +8,9 @@ class HomeController < ApplicationController
 
 
   def create_exchange
-    puts params.inspect
-
+    puts params[:user_one].inspect
 
   end
-
+  
 
 end

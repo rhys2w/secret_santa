@@ -7,80 +7,43 @@
       #span.title
         %h3 Secret Santa Exchange #1
 
-      = form_tag(create_exchange_path, :method => 'post', :multipart => true) do
-        %br
-
-<<<<<<< HEAD
-  / params[:user_one][:first_name]
+= form_tag(create_exchange_path, :method => 'post', :multipart => true) do
+  %br
   Exchange Name:
+  = text_field_tag "exchange_name"
   %br
-    = text_field_tag "exchange_name"
-  %p
-    Due Date:
-    %br
-    = date_field_tag "due_date"
-  %p
-    Maximum Budget:
-    %br
-    = text_field_tag "price"
-  %p 
-    Enter some of the participants in your secret santa (don't worry you can always enter more later)
-  %p 
-    Participant First Name
-    = text_field_tag "[user_one]first_name"
-    Participant Last Name
-    = text_field_tag "[user_one]last_name"
-    Participant Email
-    = email_field_tag "[user_one]email"
-  %p 
-    Participant First Name
-    = text_field_tag "[user_two]first_name"
-    Participant Last Name
-    = text_field_tag "[user_two]last_name"
-    Participant Email
-    = email_field_tag "[user_two]email"
-
-
-
-  = submit_tag "Submit", class: "btn btn-large btn-primary"
-=======
-        / params[:user_one][:first_name]
-        Exchange Name:
-        = text_field_tag "exchange_name"
-        %br
-        Due Date:
-        = date_field_tag "due_date"
-        %br
-        Maximum Budget:
-        = text_field_tag "price"
-        %br
-    .enter Now add some people (don't worry, you can always add more later!)
-    #span.2
-      #span.title
-        %h3 Participant #1
-      %p.participants
-      First Name:
-      = text_field_tag "[user_one]first_name"
-      %br
-      Last Name:
-      = text_field_tag "[user_one]last_name"
-      %br
-      Email:
-      = email_field_tag "[user_one]email"
-      %br
-    #span.3
-      #span.title
-        %h3 Participant #2
-      %p
-      First Name:
-      = text_field_tag "[user_two]first_name"
-      %br
-      Last Name:
-      = text_field_tag "[user_two]last_name"
-      %br
-      Email:
-      = email_field_tag "[user_two]email"
-    %br
-    = submit_tag "Go!", class: "btn btn-large", id: "submit-home"
+  Due Date:
+  = date_field_tag "due_date"
   %br
->>>>>>> a507c8c2b1daf7dfebc8abdeb45d97a888e95ae6
+  Maximum Budget:
+  = text_field_tag "price"
+  %br
+  .enter Now add some people (don't worry, you can always add more later!)
+  #span.2
+  #span.title
+    %h3 Participant #1
+  %p.participants
+  First Name:
+  = text_field_tag "[user_one]first_name"
+  %br
+  Last Name:
+  = text_field_tag "[user_one]last_name"
+  %br
+  Email:
+  = email_field_tag "[user_one]email"
+  %br
+  #span.3
+  #span.title
+    %h3 Participant #2
+  %p
+  First Name:
+  = text_field_tag "[user_two]first_name"
+  %br
+  Last Name:
+  = text_field_tag "[user_two]last_name"
+  %br
+  Email:
+  = email_field_tag "[user_two]email"
+  %br
+  = submit_tag "Go!", class: "btn btn-large", id: "submit-home"
+  %br
