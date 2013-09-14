@@ -1,1 +1,16 @@
-Test
+%h3 Your Exchange Name
+%br
+%h1=@exchange[:exchange_name]
+%br
+%h3 Participants
+%br
+%ol
+  %li 
+  %h5=@exchange[:user_one][:first_name] + " " + @exchange[:user_one][:last_name]
+  %br
+  %h5=@exchange[:user_one][:email]
+  %br
+  %li 
+  %h5=@exchange[:user_two][:first_name] + " " + @exchange[:user_two][:last_name]
+  %br
+  %h5=@exchange[:user_two][:email]
