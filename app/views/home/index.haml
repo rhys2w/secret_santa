@@ -1,44 +1,51 @@
-%h3.welcome Let's get started!
-%br
 #container-body
-  %h3 Enter the name of your Secret Santa
+  %h3.welcome Secret Santa is a fun and easy way for a group of friends, family members or co-workers to exchange gifts.
+  %br
+  Let's Start!
+  %br
+    #span.1.inside
+      #span.title
+        %h3 Secret Santa Exchange #1
 
-= form_tag(create_exchange_path, :method => 'post', :multipart => true) do
-  %p
+      = form_tag(create_exchange_path, :method => 'post', :multipart => true) do
+        %br
 
-  / params[:user_one][:first_name]
-  Exchange Name:
-  = text_field_tag "exchange_name"
-  %p
-    Due Date:
-    = date_field_tag "due_date"
-  %p
-    Maximum Budget:
-    = text_field_tag "price"
-  %p 
-    Enter some of the participants in your secret santa (don't worry, you can always enter more later on!)
-  %p 
-    %h3 First Participant:
-    Participant First Name:
-    = text_field_tag "[user_one]first_name"
+        / params[:user_one][:first_name]
+        Exchange Name:
+        = text_field_tag "exchange_name"
+        %br
+        Due Date:
+        = date_field_tag "due_date"
+        %br
+        Maximum Budget:
+        = text_field_tag "price"
+        %br
+    .enter Now add some people (don't worry, you can always add more later!)
+    #span.2
+      #span.title
+        %h3 Participant #1
+      %p.participants
+      First Name:
+      = text_field_tag "[user_one]first_name"
+      %br
+      Last Name:
+      = text_field_tag "[user_one]last_name"
+      %br
+      Email:
+      = email_field_tag "[user_one]email"
+      %br
+    #span.3
+      #span.title
+        %h3 Participant #2
+      %p
+      First Name:
+      = text_field_tag "[user_two]first_name"
+      %br
+      Last Name:
+      = text_field_tag "[user_two]last_name"
+      %br
+      Email:
+      = email_field_tag "[user_two]email"
     %br
-    Participant Last Name:
-    = text_field_tag "[user_one]last_name"
-    %br
-    Participant Email:
-    = email_field_tag "[user_one]email"
-    %br
-  %p 
-    %h3 Second Participant:
-    Participant First Name:
-    = text_field_tag "[user_two]first_name"
-    %br
-    Participant Last Name:
-    = text_field_tag "[user_two]last_name"
-    %br
-    Participant Email:
-    = email_field_tag "[user_two]email"
-
-
-  = submit_tag "Submit", class: "btn btn-med btn-danger"
-%br
+    = submit_tag "Go!", class: "btn btn-large", id: "submit-home"
+  %br

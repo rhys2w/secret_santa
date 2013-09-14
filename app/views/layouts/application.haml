@@ -5,19 +5,18 @@
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
-  %body
-    #header-sign_in
-      .top
-        -if current_user
-          Logged in as =current_user.name
-          =link_to "Sign Out", destroy_user_session_path, method: :delete
-          -if current.user.guest?
-            =link_to "Become A Member", new_user_registration_path
-        -else
-          =link_to "Sign In", new_user_session_path, :class => 'btn btn-danger'
-          =link_to "Sign Up", new_user_registration_path, :class => 'btn'
-    .logo
-      =image_tag("logo.png", :id => 'logo')
-      %br
-      %br
-      = yield
+  %body.home
+    %header
+      #wrapper
+        .logo
+          =image_tag("logo.png", :id => 'logo')
+        .top
+          -if current_user
+            Logged in as =current_user.name
+            =link_to "Sign Out", destroy_user_session_path, method: :delete
+            -if current_user.guest?
+              =link_to "Become A Member", new_user_registration_path
+          -else
+            =link_to "Sign In", new_user_session_path, :class => 'btn btn-danger'
+            =link_to "Sign Up", new_user_registration_path, :class => 'btn btn-custom'
+    = yield
