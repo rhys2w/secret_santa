@@ -3,47 +3,49 @@
   %br
   Let's Start!
   %br
-    #span.1.inside
-      #span.title
-        %h3 Secret Santa Exchange #1
 
 = form_tag(create_exchange_path, :method => 'post', :multipart => true) do
   %br
-  Exchange Name:
-  = text_field_tag "exchange_name"
-  %br
-  Due Date:
-  = date_field_tag "due_date"
-  %br
-  Maximum Budget:
-  = text_field_tag "price"
+  #span.1.inside
+    #span.title
+      %h3 Secret Santa Exchange #1
+    %br
+    Exchange Name:
+    = text_field_tag "exchange_name"
+    %br
+    Due Date:
+    = date_field_tag "due_date"
+    %br
+    Maximum Budget:
+    = text_field_tag "price"
   %br
   .enter Now add some people (don't worry, you can always add more later!)
   #span.2
-  #span.title
-    %h3 Participant #1
-  %p.participants
-  First Name:
-  = text_field_tag "[user_one]first_name"
-  %br
-  Last Name:
-  = text_field_tag "[user_one]last_name"
-  %br
-  Email:
-  = email_field_tag "[user_one]email"
-  %br
+    #span.title
+      %h3 Participant #1
+    %p.participants
+    First Name:
+    = text_field_tag "[user_one]first_name"
+    %br
+    Last Name:
+    = text_field_tag "[user_one]last_name"
+    %br
+    Email:
+    = email_field_tag "[user_one]email"
+    %br
   #span.3
-  #span.title
-    %h3 Participant #2
-  %p
-  First Name:
-  = text_field_tag "[user_two]first_name"
-  %br
-  Last Name:
-  = text_field_tag "[user_two]last_name"
-  %br
-  Email:
-  = email_field_tag "[user_two]email"
-  %br
+    #span.title
+      %h3 Participant #2
+    %p
+    First Name:
+    = text_field_tag "[user_two]first_name"
+    %br
+    Last Name:
+    = text_field_tag "[user_two]last_name"
+    %br
+    Email:
+    = email_field_tag "[user_two]email"
+    %br
+  %br 
   = submit_tag "Go!", class: "btn btn-large", id: "submit-home"
   %br

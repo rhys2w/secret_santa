@@ -1,16 +1,41 @@
 %h3 Your Exchange Name
-%br
 %h1=@exchange[:exchange_name]
-%br
 %h3 Participants
-%br
 %ol
   %li 
   %h5=@exchange[:user_one][:first_name] + " " + @exchange[:user_one][:last_name]
-  %br
   %h5=@exchange[:user_one][:email]
-  %br
   %li 
   %h5=@exchange[:user_two][:first_name] + " " + @exchange[:user_two][:last_name]
-  %br
   %h5=@exchange[:user_two][:email]
+
+/ Add Additional Participants:
+/ -user.each do |n|
+/ = form_tag(create_exchange_path, :method => 'post', :multipart => true) do
+/   %p.participants
+/     First Name:
+/     = text_field_tag "[user(n)]first_name"
+/     %br
+/     Last Name:
+/     = text_field_tag "[user(n)]last_name"
+/     %br
+/     Email:
+/     = email_field_tag "[user(n)]email"
+/     = submit_tag "Go!", class: "btn btn-large", id: "submit-home"
+
+/ Sign Up to save your Exchange
+/ = form_for(resource, :as => resource_name, :url => user_registration_path(resource_name)) do |f|
+/   = devise_error_messages!
+/   %div
+/     = f.label :email
+/     = f.email_field :email, :autofocus => true
+/   %div
+/     = f.label :password
+/     = f.password_field :password
+/   %div
+/     = f.label :password_confirmation
+/     = f.password_field :password_confirmation
+/   %div
+/     = f.submit "SIGN UP", class: "btn btn-custom"
+
+Stuff
