@@ -1,13 +1,14 @@
-%h3 Your Exchange Name
-%h1=@exchange[:exchange_name]
-%h3 Participants
-%ol
-  %li 
-  %h5=@exchange[:user_one][:first_name] + " " + @exchange[:user_one][:last_name]
-  %h5=@exchange[:user_one][:email]
-  %li 
-  %h5=@exchange[:user_two][:first_name] + " " + @exchange[:user_two][:last_name]
-  %h5=@exchange[:user_two][:email]
+#span
+	#span.title
+		%h1.exchange-title=@exchange[:exchange_name]
+	%h3 Participants
+	%ol
+		%li 
+		%h5=@exchange[:user_one][:first_name] + " " + @exchange[:user_one][:last_name]
+		%h5=@exchange[:user_one][:email]
+		%li 
+		%h5=@exchange[:user_two][:first_name] + " " + @exchange[:user_two][:last_name]
+		%h5=@exchange[:user_two][:email]
 
 / Add Additional Participants:
 / -user.each do |n|
@@ -37,5 +38,3 @@
 /     = f.password_field :password_confirmation
 /   %div
 /     = f.submit "SIGN UP", class: "btn btn-custom"
-
-Stuff

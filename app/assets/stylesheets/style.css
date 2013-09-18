@@ -12,7 +12,7 @@ a{
 	text-decoration: none;
 }
 
-ul{
+ul, ol, li{
 	list-style: none;
 	display: inline;
 }
@@ -55,6 +55,7 @@ height: 110px;
 }
 
 .nav{
+	display: inline;
 	width: 100px;
 	text-transform: uppercase;
 	color: #fff;
@@ -107,4 +108,13 @@ height: 110px;
 #span{
 	margin-top: 10px
 }
+
+.exchange-title{
+	padding-top: 10px;
+}
+
+.forgot_password{
+	display: inline;
+}
+
 
