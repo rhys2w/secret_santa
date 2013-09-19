@@ -5,7 +5,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :exchanges, dependent: :destroy
+  has_many :user_exchange
+  has_many :exchanges, through: :user_exchange, dependent: :destroy
+
   has_many :relationships, foreign_key: "gifter_id", dependent: :destroy
   has_many :giftee_users, through: :relationships, source: :giftee
   has_many :reverse_relationships, foreign_key: "giftee_id",

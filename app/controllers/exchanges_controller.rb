@@ -8,12 +8,12 @@ class ExchangesController < ApplicationController
   #the POST request to process and create a new exchange
   def create
     @exchange = Exchange.new(exchange_params)
-    # @user = User.find(params[:user_id])
-    # if @exchange.save && @user.exchanges << @exchange
-    #   flash[:notice] = "Your to do exchange was created successfully."
-    # else
-    #   flash[:notice] = "There was a problem creating your to do exchange."
-    # end
+    @user = User.find(params[:user_id])
+    if @exchange.save && @user.exchanges << @exchange
+      flash[:notice] = "Your exchange was created successfully."
+    else
+      flash[:notice] = "There was a problem creating your to do exchange."
+    end
     redirect_to 'exchange#index'
   end
 
@@ -51,7 +51,7 @@ class ExchangesController < ApplicationController
 
   #show all the exchanges
   def index
-    @exchanges = Exchange.all
+    @exchange = Exchange.where('user_id = ?', :id)
   end
 
 

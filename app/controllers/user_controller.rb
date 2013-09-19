@@ -9,13 +9,13 @@
   def create
     @user = params[:user] ? User.new(params[:user]) : User.new_guest
     if @user.save
-      #flash[:notice] = "Your account was created successfully."
+      flash[:notice] = "Your account was created successfully."
       current.user.move_to(@user) if current.user && current.user.guest?
       session[:user_id] = @user.id
       redirect_to root_path
     else
       render "new"
-      #flash[:notice] = "There was a problem creating your account."
+      flash[:notice] = "There was a problem creating your account."
     end
     
   end

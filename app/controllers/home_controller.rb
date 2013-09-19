@@ -8,10 +8,20 @@ class HomeController < ApplicationController
 
 
   def create_exchange
-    @exchange = params
-    puts params[:user_one].inspect
-
+    @exchange = Exchange.new(exchange_params)
+    @user = current_user
+    if @exchange.save && @user.exchanges << @exchange
+      flash[:notice] = "Your exchange was created successfully."
+    else
+      flash[:notice] = "There was a problem creating your to do exchange."
+    end
+    redirect_to exchanges_path
   end
 
+  private
+
+  def exchange_params
+    params.require(:exchange).permit(:exchange_name, :due_date, :price)
+  end
 
 end
