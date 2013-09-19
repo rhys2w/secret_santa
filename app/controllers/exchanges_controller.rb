@@ -51,7 +51,7 @@ class ExchangesController < ApplicationController
 
   #show all the exchanges
   def index
-    @exchange = Exchange.where('user_id = ?', :id)
+    @exchange = Exchange.where(user_id = "1")
   end
 
 
