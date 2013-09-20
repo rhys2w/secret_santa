@@ -11,7 +11,6 @@ SecretSanta::Application.routes.draw do
     resources :exchanges
   end
 
-  resources :exchanges
 
   post 'create_exchange' => 'home#create_exchange'
   #   get 'products/:id' => 'catalog#view'

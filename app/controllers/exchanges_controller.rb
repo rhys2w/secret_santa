@@ -47,11 +47,22 @@ class ExchangesController < ApplicationController
   #show an individual exchange
   def show
     @exchange = Exchange.find(params[:id])
+    users = User.find(params[:user_id])
+    # if @exchange
+    #   @user_one = @user.exchange
+    # else
+    #   redirect_to user_exchanges_path
+    # end
   end
 
   #show all the exchanges
   def index
-    @exchange = Exchange.where(user_id = "1")
+    @user = User.find(params[:user_id])
+    if @user
+      @exchanges = @user.exchanges
+    else
+      redirect_to root_path
+    end
   end
 
 
@@ -60,8 +71,4 @@ class ExchangesController < ApplicationController
   def exchange_params
     params.require(:exchange).permit(:exchange_name, :due_date, :price)
   end
-
-
-
-
 end

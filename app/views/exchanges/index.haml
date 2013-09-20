@@ -1,4 +1,7 @@
-=current_user.email
-%h1 Exchange
+%h3 Welcome 
+%h1 
+  =current_user.email
+%h1 Your Exchanges
 
-=@exchange.exchange_name
+-@exchanges.each do |exchange|
+  %h3=link_to exchange.exchange_name, user_exchange_path(current_user, exchange)

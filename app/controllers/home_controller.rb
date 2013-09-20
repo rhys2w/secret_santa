@@ -6,16 +6,19 @@ class HomeController < ApplicationController
 
   end
 
-
   def create_exchange
+    #handle the exchange's users that are added "user_one" "user_two" etc.
     @exchange = Exchange.new(exchange_params)
     @user = current_user
+    @user_one = User.new(user_one_params)
+    @user.save
+    @user_one.exchanges << @exchange
     if @exchange.save && @user.exchanges << @exchange
       flash[:notice] = "Your exchange was created successfully."
     else
       flash[:notice] = "There was a problem creating your to do exchange."
     end
-    redirect_to exchanges_path
+    redirect_to user_exchanges_path(user_id: current_user.id)
   end
 
   private
@@ -23,5 +26,9 @@ class HomeController < ApplicationController
   def exchange_params
     params.require(:exchange).permit(:exchange_name, :due_date, :price)
   end
+  def user_one_params
+    params.require(:user_one).permit(:first_name, :last_name, :email)
+  end
+
 
 end
