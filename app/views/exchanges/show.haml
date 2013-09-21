@@ -1,8 +1,125 @@
 =current_user.email
-%h1 Exchange
-
-=@exchange.exchange_name
-
+=current_user.first_name
+%h3 Exchange Name
+%h1
+  =@exchange.exchange_name
+%br
 -@exchange.users.each do |user|
-  =user.first_name
-  
+  =user.first_name 
+  =user.last_name
+  %br 
+    =user.email
+
+/ = form_tag(update_exchange_path, :method => 'post', :multipart => true) do
+/   %br
+/   .enter Now you can add more people to your exchange!
+/   #span.2
+/     #span.title
+/       %h3 Participant #1
+/     %p.participants
+/     First Name:
+/     = text_field_tag "[user_three]first_name"
+/     %br
+/     Last Name:
+/     = text_field_tag "[user_three]last_name"
+/     %br
+/     Email:
+/     = email_field_tag "[user_three]email"
+/     %br
+/   #span.3
+/     #span.title
+/       %h3 Participant #2
+/     %p
+/     First Name:
+/     = text_field_tag "[user_four]first_name"
+/     %br
+/     Last Name:
+/     = text_field_tag "[user_four]last_name"
+/     %br
+/     Email:
+/     = email_field_tag "[user_four]email"
+/     %br
+/   %br
+/   #span.2
+/     #span.title
+/       %h3 Participant #1
+/     %p.participants
+/     First Name:
+/     = text_field_tag "[user_five]first_name"
+/     %br
+/     Last Name:
+/     = text_field_tag "[user_five]last_name"
+/     %br
+/     Email:
+/     = email_field_tag "[user_five]email"
+/     %br
+/   #span.3
+/     #span.title
+/       %h3 Participant #2
+/     %p
+/     First Name:
+/     = text_field_tag "[user_six]first_name"
+/     %br
+/     Last Name:
+/     = text_field_tag "[user_six]last_name"
+/     %br
+/     Email:
+/     = email_field_tag "[user_six]email"
+/     %br
+/   %br 
+/   #span.2
+/     #span.title
+/       %h3 Participant #1
+/     %p.participants
+/     First Name:
+/     = text_field_tag "[user_seven]first_name"
+/     %br
+/     Last Name:
+/     = text_field_tag "[user_seven]last_name"
+/     %br
+/     Email:
+/     = email_field_tag "[user_seven]email"
+/     %br
+/   #span.3
+/     #span.title
+/       %h3 Participant #2
+/     %p
+/     First Name:
+/     = text_field_tag "[user_eight]first_name"
+/     %br
+/     Last Name:
+/     = text_field_tag "[user_eight]last_name"
+/     %br
+/     Email:
+/     = email_field_tag "[user_eight]email"
+/     %br
+/   %br 
+/   #span.2
+/     #span.title
+/       %h3 Participant #1
+/     %p.participants
+/     First Name:
+/     = text_field_tag "[user_nine]first_name"
+/     %br
+/     Last Name:
+/     = text_field_tag "[user_nine]last_name"
+/     %br
+/     Email:
+/     = email_field_tag "[user_nine]email"
+/     %br
+/   #span.3
+/     #span.title
+/       %h3 Participant #2
+/     %p
+/     First Name:
+/     = text_field_tag "[user_ten]first_name"
+/     %br
+/     Last Name:
+/     = text_field_tag "[user_ten]last_name"
+/     %br
+/     Email:
+/     = email_field_tag "[user_ten]email"
+/     %br
+/   %br 
+/   = submit_tag "Go!", class: "btn btn-large", id: "submit-home"
+/   %br   

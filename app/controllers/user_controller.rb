@@ -1,5 +1,5 @@
-    class UserController < ApplicationController
-
+class UserController < ApplicationController
+  after_create :set_admin
   #the form to create a new user
   def new
 
@@ -17,7 +17,7 @@
       render "new"
       flash[:notice] = "There was a problem creating your account."
     end
-    
+  after_create :set_admin  
   end
 
   # the page to edit a user's account information
@@ -59,6 +59,13 @@
 
 
   private
+  def set_admin
+    if User.last.nil?
+      User.last.update_attributes(:admin, true)
+    else
+      return true
+    end
+  end
 
   def user_params
     params.require(:user).permit(:email, :password, :first_name, :last_name)

@@ -1,4 +1,8 @@
 class ExchangesController < ApplicationController
+  # include Devise::Controllers::InternalHelpers
+
+  # skip_filter :authenticate_inviter!
+  # skip_filter :authenticate!
 
   #the form to create a new exchange
   def new

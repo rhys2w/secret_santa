@@ -13,6 +13,7 @@ SecretSanta::Application.routes.draw do
 
 
   post 'create_exchange' => 'home#create_exchange'
+  post 'update_exchange' => 'home#update_exchange'
   #   get 'products/:id' => 'catalog#view'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
