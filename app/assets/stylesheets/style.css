@@ -117,4 +117,12 @@ height: 110px;
 	display: inline;
 }
 
+nav a:hover{
+	color: #fff;
+}
+
+nav a:active{
+	border-bottom: 1px dotted #fff !important;
+}
+
 

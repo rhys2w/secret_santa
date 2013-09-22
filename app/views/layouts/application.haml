@@ -13,10 +13,10 @@
             =image_tag("logo.png", :id => 'logo')
         %nav.nav
           %ul
-            %li Home
-            %li Exchanges
-            %li About
-            %li Contact
+            %li= link_to "Home", root_path
+            %li= link_to "Exchanges", user_exchange_path(:user_id => 1, :id => "")
+            %li= link_to "About", root_path
+            %li= link_to "Contact", root_path
         .top
           -if current_user
             Logged in as 
