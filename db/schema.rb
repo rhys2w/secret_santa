@@ -22,13 +22,8 @@ ActiveRecord::Schema.define(version: 20130920185818) do
   end
 
   create_table "matches", force: true do |t|
-<<<<<<< HEAD
     t.integer  "gifter_id"
     t.integer  "giftee_id"
-=======
-    t.integer  "gifter"
-    t.integer  "giftee"
->>>>>>> 013340f95fff0db017dacf5629d15d29462e1b73
     t.datetime "created_at"
     t.datetime "updated_at"
   end
