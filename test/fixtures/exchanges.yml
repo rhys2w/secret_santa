@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  exchange_name: MyString
+  due_date: 2013-09-04 20:47:22
+  price: MyString
+
+two:
+  exchange_name: MyString
+  due_date: 2013-09-04 20:47:22
+  price: MyString

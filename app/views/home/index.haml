@@ -1,0 +1,54 @@
+#container-body
+  %h3.welcome Secret Santa is a fun and easy way for a group of friends, family members or co-workers to exchange gifts.
+  %br
+  Let's Start!
+  %br
+= form_tag(create_exchange_path, :method => 'post', :multipart => true) do
+  %br
+  #span.1.inside
+    #span.title
+      %h3 Secret Santa Exchange #1
+    %br
+    Exchange Name:
+    = text_field_tag "[exchange]exchange_name"
+    %br
+    Due Date:
+    = date_field_tag "[exchange]due_date"
+    %br
+    Maximum Budget:
+    = text_field_tag "[exchange]price"
+  %br
+  .enter Now add some people (don't worry, you can always add more later!)
+  -i=0
+  -while i<=9
+  -i += 1
+    #span.2
+      #span.title
+        %h3 Participant #{i}
+      %p.participants
+        First Name:
+        = text_field_tag "[user_#{i}]first_name"
+        %br
+        Last Name:
+        = text_field_tag "[user_#{i}]last_name"
+        %br
+        Email:
+        = email_field_tag "[user_#{i}]email"
+        %br
+    
+  / #span.3
+  /   #span.title
+  /     %h3 Participant #2
+  /   %p
+  /   First Name:
+  /   = text_field_tag "[user_two]first_name"
+  /   %br
+  /   Last Name:
+  /   = text_field_tag "[user_two]last_name"
+  /   %br
+  /   Email:
+  /   = email_field_tag "[user_two]email"
+  /   %br
+  %br 
+  = submit_tag "Go!", class: "btn btn-large", id: "submit-home"
+  %br

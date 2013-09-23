@@ -1,0 +1,33 @@
+!!!
+%html
+  %head
+    %title SecretSanta
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+  %body.home
+    %header
+      #wrapper
+        .logo
+          =link_to "/" do
+            =image_tag("logo.png", :id => 'logo')
+        %nav.nav
+          %ul
+            %li= link_to "Home", root_path
+            %li= link_to "Exchanges", user_exchange_path(:user_id => 1, :id => "")
+            %li= link_to "About", root_path
+            %li= link_to "Contact", root_path
+        .top
+          -if current_user
+            Logged in as 
+            =current_user.email
+            &nbsp;&nbsp;
+            =link_to "Sign Out", destroy_user_session_path, method: :delete
+            -if current_user.guest?
+              =link_to "Become A Member", new_user_registration_path
+          -else
+            =link_to "Sign In", new_user_session_path, :class => 'btn btn-danger'
+            =link_to "Sign Up", new_user_registration_path, :class => 'btn btn-custom'
+    -if !flash[:notice].nil?
+      =flash[:notice]
+    = yield

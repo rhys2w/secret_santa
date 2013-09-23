@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  gifter: 1
+  giftee: 1
+
+two:
+  gifter: 1
+  giftee: 1

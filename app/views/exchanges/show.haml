@@ -1,0 +1,20 @@
+=current_user.email
+=current_user.first_name
+%h3 Exchange Name
+%h1
+  =@exchange.exchange_name
+%br
+%h3 Exchange Participants
+-exchange_users = @exchange.users
+-exchange_users.each do |user|
+  =user.first_name
+  =user.last_name
+  %br 
+  =user.email
+  %br
+%br
+%h3 Randomly match everyone together!
+= form_tag(create_match_user_exchange_path :method => 'post', :multipart => true) do
+  = submit_tag "Go!", class: "btn btn-large", id: "submit-home"
+
+=Match.last.inspect
