@@ -51,13 +51,8 @@ ActiveRecord::Schema.define(version: 20130920185818) do
     t.string   "last_name"
     t.datetime "created_at"
     t.datetime "updated_at"
-<<<<<<< HEAD
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
-=======
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: ""
->>>>>>> 013340f95fff0db017dacf5629d15d29462e1b73
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -67,12 +62,8 @@ ActiveRecord::Schema.define(version: 20130920185818) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.boolean  "guest"
-<<<<<<< HEAD
     t.boolean  "admin",                  default: false
-=======
-    t.boolean  "admin"
-    t.datetime "invitation_created_at"
->>>>>>> 013340f95fff0db017dacf5629d15d29462e1b73
+
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
