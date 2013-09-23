@@ -44,7 +44,11 @@ class ExchangesController < ApplicationController
     else
       flash[:alert] = "There was a problem matching the users in your exchange. Please try again."
     end
+<<<<<<< HEAD
     redirect_to user_exchange_path(user_id: current_user.id)
+=======
+    redirect_to user_exchange_match
+>>>>>>> 013340f95fff0db017dacf5629d15d29462e1b73
   end
 
 

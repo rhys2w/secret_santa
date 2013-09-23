@@ -5,6 +5,7 @@ class Match < ActiveRecord::Base
   validates :giftee_id, presence: true
 
   def self.match_users!(exchange_users)
+<<<<<<< HEAD
     count = exchange_users.count
 
     random_users = exchange_users.order('random()')
@@ -12,6 +13,19 @@ class Match < ActiveRecord::Base
       if (number+1) == count
         Match.create(gifter_id: user.id, giftee_id: exchange_users[0])
       else
+=======
+    #how many users are we dealing with
+    count = exchange_users.count
+    #randomize the users
+    random_users = exchange_users.order('random()')
+    #loop over each user with an index counted in the variable called number, which starts at zero
+    random_users.each_with_index do |user, number|
+      #if this is the last user in the exchange, assign them to the first user
+      if (number+1) == count
+        Match.create(gifter_id: user.id, giftee_id: exchange_users[0])
+      else
+        #otherwise, assign this user to the one after them
+>>>>>>> 013340f95fff0db017dacf5629d15d29462e1b73
         Match.create(gifter_id: user.id, giftee_id: exchange_users[number+1])
       end
     end
@@ -20,9 +34,12 @@ class Match < ActiveRecord::Base
 
 
 end
+<<<<<<< HEAD
 
     #how many users are we dealing with
     #randomize the users
     #loop over each user with an index counted in the variable called number, which starts at zero
     #if this is the last user in the exchange, assign them to the first user
     #otherwise, assign this user to the one after them
+=======
+>>>>>>> 013340f95fff0db017dacf5629d15d29462e1b73
