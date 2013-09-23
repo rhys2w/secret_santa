@@ -8,12 +8,16 @@ class User < ActiveRecord::Base
   has_many :user_exchange
   has_many :exchanges, through: :user_exchange, dependent: :destroy
 
-  has_many :relationships, foreign_key: "gifter_id", dependent: :destroy
-  has_many :giftee_users, through: :relationships, source: :giftee
-  has_many :reverse_relationships, foreign_key: "giftee_id",
-                                   class_name:  "Matches",
-                                   dependent:   :destroy
-  has_many :gifters, through: :reverse_relationships, source: :gifter
+  #setup giftee_matches as a proxy to match, which relies on the giftee_id foreign key
+  has_many :giftee_matches, foreign_key: :giftee_id, dependent: :destroy, class_name: "Match"
+  #alias giftees to the giftee_matches association with the source of giftee
+  has_many :giftees, through: :giftee_matches, source: :giftee
+
+
+  has_many :gifter_matches, foreign_key: :gifter_id, dependent: :destroy, class_name: "Match"
+  
+  has_many :gifters, through: :gifter_matches, source: :gifter
+  
 
   # validates_presence_of :email, :password_digest unless :guest?
   # validates_uniqueness_of :email, allow_blank: true

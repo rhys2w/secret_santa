@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130920185818) do
+ActiveRecord::Schema.define(version: 20130923221655) do
 
   create_table "exchanges", force: true do |t|
     t.string   "exchange_name"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20130920185818) do
     t.integer  "giftee_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "exchange_id"
   end
 
   create_table "relationships", force: true do |t|
@@ -63,7 +64,6 @@ ActiveRecord::Schema.define(version: 20130920185818) do
     t.string   "last_sign_in_ip"
     t.boolean  "guest"
     t.boolean  "admin",                  default: false
-
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

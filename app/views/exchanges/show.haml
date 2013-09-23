@@ -13,10 +13,17 @@
   =user.email
   %br
 %br
+%h3 Exchange Matches
+-@exchange.matches.each do |match|
+  =match.gifter.first_name
+  =match.gifter.last_name
+  %br
+  is giving
+  =match.giftee.first_name
+  =match.giftee.last_name
+  %br 
+  a present!
+
 %h3 Randomly match everyone together!
 = form_tag(create_match_user_exchange_path :method => 'post', :multipart => true) do
-<<<<<<< HEAD
   = submit_tag "Go!", class: "btn btn-large", id: "submit-home"
-=======
-  = submit_tag "Go!", class: "btn btn-large", id: "submit-home"
->>>>>>> 013340f95fff0db017dacf5629d15d29462e1b73
