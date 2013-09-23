@@ -5,7 +5,6 @@ gem 'haml'
 gem 'haml-rails'
 gem 'devise'
 gem 'flatui-rails'
-gem 'devise_invitable'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'

@@ -19,32 +19,36 @@
     = text_field_tag "[exchange]price"
   %br
   .enter Now add some people (don't worry, you can always add more later!)
-  #span.2
-    #span.title
-      %h3 Participant #1
-    %p.participants
-    First Name:
-    = text_field_tag "[user_one]first_name"
-    %br
-    Last Name:
-    = text_field_tag "[user_one]last_name"
-    %br
-    Email:
-    = email_field_tag "[user_one]email"
-    %br
-  #span.3
-    #span.title
-      %h3 Participant #2
-    %p
-    First Name:
-    = text_field_tag "[user_two]first_name"
-    %br
-    Last Name:
-    = text_field_tag "[user_two]last_name"
-    %br
-    Email:
-    = email_field_tag "[user_two]email"
-    %br
+  -i=0
+  -while i<=9
+  -i += 1
+    #span.2
+      #span.title
+        %h3 Participant #{i}
+      %p.participants
+        First Name:
+        = text_field_tag "[user_#{i}]first_name"
+        %br
+        Last Name:
+        = text_field_tag "[user_#{i}]last_name"
+        %br
+        Email:
+        = email_field_tag "[user_#{i}]email"
+        %br
+    
+  / #span.3
+  /   #span.title
+  /     %h3 Participant #2
+  /   %p
+  /   First Name:
+  /   = text_field_tag "[user_two]first_name"
+  /   %br
+  /   Last Name:
+  /   = text_field_tag "[user_two]last_name"
+  /   %br
+  /   Email:
+  /   = email_field_tag "[user_two]email"
+  /   %br
   %br 
   = submit_tag "Go!", class: "btn btn-large", id: "submit-home"
   %br

@@ -18,7 +18,7 @@ class ExchangesController < ApplicationController
     else
       flash[:notice] = "There was a problem creating your to do exchange."
     end
-    redirect_to 'exchange#index'
+  redirect_to user_exchanges_path
   end
 
   # the page to edit a exchange's account information
@@ -37,6 +37,17 @@ class ExchangesController < ApplicationController
     redirect_to 'exchange#edit'
   end
 
+  def create_match
+    @exchange_users = Exchange.find(params[:id]).users
+    if Match.match_users!(@exchange_users)
+      flash[:notice] = "Users matched successfully. Gift away!"
+    else
+      flash[:alert] = "There was a problem matching the users in your exchange. Please try again."
+    end
+    redirect_to user_exchange_match
+  end
+
+
   #the method to delete a exchange
   def destroy
     @exchange = Exchange.find(params[:id])
@@ -50,13 +61,11 @@ class ExchangesController < ApplicationController
 
   #show an individual exchange
   def show
-    @exchange = Exchange.find(params[:id])
     users = User.find(params[:user_id])
-    # if @exchange
-    #   @user_one = @user.exchange
-    # else
-    #   redirect_to user_exchanges_path
-    # end
+    @exchange = Exchange.find(params[:id])
+    if !@exchange
+      redirect_to user_exchanges_path
+    end
   end
 
   #show all the exchanges
