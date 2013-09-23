@@ -16,5 +16,3 @@
 %h3 Randomly match everyone together!
 = form_tag(create_match_user_exchange_path :method => 'post', :multipart => true) do
   = submit_tag "Go!", class: "btn btn-large", id: "submit-home"
-
-=Match.last.inspect
