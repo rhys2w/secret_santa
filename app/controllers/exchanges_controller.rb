@@ -38,8 +38,8 @@ class ExchangesController < ApplicationController
   end
 
   def create_match
-    @exchange_users = Exchange.find(params[:id]).users
-    if Match.match_users!(@exchange_users)
+    @exchange = Exchange.find(params[:id])
+    if Match.match_users!(@exchange)
       flash[:notice] = "Users matched successfully. Gift away!"
     else
       flash[:alert] = "There was a problem matching the users in your exchange. Please try again."
